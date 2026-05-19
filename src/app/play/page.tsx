@@ -2491,8 +2491,8 @@ function PlayPageClient() {
                   className={cn(
                     'absolute right-3 top-3 z-30 hidden items-center gap-1.5 rounded-full bg-black/55 px-3 py-1.5 text-xs font-medium text-white opacity-0 pointer-events-none ring-1 ring-white/20 backdrop-blur-md transition lg:flex',
                     'group-hover/player:opacity-100 group-hover/player:pointer-events-auto focus-visible:opacity-100 focus-visible:pointer-events-auto',
-                    // 触屏设备无 hover：始终可见
-                    '[@media(pointer:coarse)]:opacity-100 [@media(pointer:coarse)]:pointer-events-auto',
+                    // 触屏设备无 hover：始终可见 + 加大触控区
+                    '[@media(pointer:coarse)]:opacity-100 [@media(pointer:coarse)]:pointer-events-auto [@media(pointer:coarse)]:tap-target',
                   )}
                 >
                   <svg
@@ -2512,9 +2512,7 @@ function PlayPageClient() {
                       d='M9 5l7 7-7 7'
                     />
                   </svg>
-                  <span>
-                    {isEpisodeSelectorCollapsed ? '显示' : '隐藏'}
-                  </span>
+                  <span>{isEpisodeSelectorCollapsed ? '显示' : '隐藏'}</span>
                   <span
                     className={cn(
                       'h-2 w-2 rounded-full',
@@ -2660,6 +2658,7 @@ const FavoriteIcon = ({ filled }: { filled: boolean }) => {
         className='h-7 w-7'
         viewBox='0 0 24 24'
         xmlns='http://www.w3.org/2000/svg'
+        aria-hidden='true'
       >
         <path
           d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'
@@ -2673,7 +2672,10 @@ const FavoriteIcon = ({ filled }: { filled: boolean }) => {
     );
   }
   return (
-    <Heart className='h-7 w-7 stroke-1 text-gray-600 dark:text-gray-300' />
+    <Heart
+      className='h-7 w-7 stroke-1 text-gray-600 dark:text-gray-300'
+      aria-hidden='true'
+    />
   );
 };
 

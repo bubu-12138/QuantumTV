@@ -80,14 +80,14 @@ xl:grid-cols-[minmax(0,1fr)_22rem]
 
 | 断点 | 标题字号 |
 |------|---------|
-| `max-[375px]` | `text-2xl` (1.5rem) |
-| 默认（mobile） | `text-[1.75rem]` |
+| `max-[375px]` | `text-xl` (1.25rem) |
+| 默认（mobile） | `text-2xl` (1.5rem) |
 | `sm` (640+) | `text-3xl` (1.875rem) |
 | `lg` (1024+) | `text-[2.25rem]` |
 | `xl` (1280+) | `text-[2.5rem]` |
 | `2xl`/`min-[1440px]` | `text-[2.75rem]` |
 
-（当前 mobile 是 `2rem`、`375` 下 `1.8rem`，对小屏偏大，标题容易吃两行。）
+（当前 mobile 是 `2rem`、`375` 下 `1.8rem`，对小屏偏大，标题容易吃两行。新值在 320px 等极小屏上更稳。）
 
 #### 单一跳过按钮
 
